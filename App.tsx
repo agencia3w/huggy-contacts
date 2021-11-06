@@ -1,19 +1,32 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ThemeProvider } from 'styled-components';
+import theme from './src/styles/theme';
+import { useFonts, Roboto_400Regular, Roboto_500Medium } from '@expo-google-fonts/roboto';
+import { Rubik_400Regular, Rubik_500Medium } from '@expo-google-fonts/rubik';
+import AppLoading from 'expo-app-loading';
+import { AuthProvider } from './src/hooks/auth';
+
+import { Routes } from './src/routes';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  );
-}
+	const [fontsLoaded] = useFonts({
+		Roboto_400Regular,
+		Roboto_500Medium,
+		Rubik_400Regular,
+		Rubik_500Medium,
+		IcoMoon: require('./assets/icomoon/icomoon.ttf')
+	});
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+	if (!fontsLoaded) {
+		return <AppLoading />
+	}
+
+	return (
+		<ThemeProvider theme={theme}>
+			<AuthProvider>
+				<Routes />
+			</AuthProvider>
+		</ThemeProvider>
+	)
+}
