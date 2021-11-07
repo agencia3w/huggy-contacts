@@ -102,21 +102,6 @@ export function ContactList() {
         loadContacts();
     }, [text]));
 
-    const DATA = [
-        {
-            title: "A",
-            data: [{ id: 1, name: "Ana Maria" }, { id: 2, name: "Arnaldo" }, { id: 3, name: "André" }]
-        },
-        {
-            title: "B",
-            data: [{ id: 4, name: "Bia" }, { id: 5, name: "Bruno" }]
-        },
-        {
-            title: "F",
-            data: [{ id: 6, name: "Fabrício" }, { id: 7, name: "Fagner" }]
-        },
-    ];
-
     return (
         <SafeAreaView>
             <ContainerHeader border={bordered}>
@@ -159,6 +144,7 @@ export function ContactList() {
                             :
                             <>
                                 <SectionListContact
+                                    contentContainerStyle={{paddingBottom: 30}}
                                     sections={sectionData}
                                     keyExtractor={(item) => String(item.id)}
                                     renderItem={({ item }) =>
@@ -176,24 +162,6 @@ export function ContactList() {
                                         <TitleSection>{title}</TitleSection>
                                     )}
                                 />
-                                {/* <List
-                                    onScroll={event =>
-                                        setBordered(event.nativeEvent.contentOffset.y > 0 ? true : false)
-                                    }
-                                    data={data}
-                                    keyExtractor={item => String(item.id)}
-                                    renderItem={({ item }) =>
-                                        <ButtonContact underlayColor={theme.colors.mine_shaft_10} onPress={() => handleDetail(item)} activeOpacity={0.7}>
-                                            <UserAvatar
-                                                size={40}
-                                                name={item.name}
-                                                bgColor={theme.colors.persian_blue_10}
-                                                textColor={theme.colors.persian_blue_800}
-                                            />
-                                            <TextContact>{item.name}</TextContact>
-                                        </ButtonContact>
-                                    }
-                                /> */}
                                 <FabButton activeOpacity={0.7} onPress={handleAddContact}>
                                     <Iconmoon name="add" color={theme.colors.white} size={24} />
                                 </FabButton>
