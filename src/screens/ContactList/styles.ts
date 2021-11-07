@@ -1,6 +1,6 @@
 import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
-import { FlatList } from 'react-native';
+import { FlatList, SectionList } from 'react-native';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { RectButton } from 'react-native-gesture-handler';
 import { ContactProps } from '.';
@@ -74,12 +74,28 @@ export const List = styled(
     width: 100%
 `;
 
+export const SectionListContact = styled(
+    SectionList as new () => SectionList<ContactProps>
+).attrs({
+    showsVerticalScrollIndicator: false,
+})`
+    width: 100%
+`;
+
 export const ButtonContact = styled(RectButton)`
     width: 100%;
     height: 56px;
     flex-direction: row;
     align-items: center;
     padding-left: 50px;
+`;
+
+export const TitleSection = styled.Text`
+    font-family: ${({ theme }) => theme.fonts.roboto_medium};
+    font-size: ${RFValue(20)}px;
+    color: ${({theme}) => theme.colors.mine_shaft_700};
+    margin-left: 16px;
+    width: 20px;
 `;
 
 export const TextContact = styled.Text`
