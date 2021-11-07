@@ -4,7 +4,8 @@ import {
     Container,
     TextError,
     Form,
-    FloatInput
+    FloatInput,
+    Label
 } from './styles';
 
 import * as Yup from "yup";
@@ -80,38 +81,53 @@ export function ContactEdit() {
                         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                             <Form>
 
+                                <Label>Nome</Label>
                                 <FloatInput
                                     hasError={errors.name && touched.name}
                                     autoCapitalize="words"
-                                    label="Nome" value={values.name} onChangeText={handleChange('name')} onBlur={handleBlur('name')}
+                                    value={values.name} onChangeText={handleChange('name')} onBlur={handleBlur('name')}
                                 />
                                 {errors.name && touched.name ? (<TextError>{errors.name}</TextError>) : null}
+
+                                <Label>Email</Label>
                                 <FloatInput
                                     hasError={errors.email && touched.email}
                                     autoCapitalize="none"
                                     keyboardType="email-address"
-                                    label="E-mail" value={values.email} onChangeText={handleChange('email')} onBlur={handleBlur('email')}
+                                    value={values.email} onChangeText={handleChange('email')} onBlur={handleBlur('email')}
                                 />
                                 {errors.email && touched.email ? (<TextError>{errors.email}</TextError>) : null}
+
+                                <Label>Telefone</Label>
                                 <FloatInput
                                     keyboardType="number-pad"
-                                    label="Telefone" value={values.phone} onChangeText={handleChange('phone')} onBlur={handleBlur('phone')}
+                                    value={values.phone} onChangeText={handleChange('phone')} onBlur={handleBlur('phone')}
                                 />
+
+                                <Label>Celular</Label>
                                 <FloatInput
                                     keyboardType="number-pad"
-                                    label="Celular" value={values.mobile} onChangeText={handleChange('mobile')} onBlur={handleBlur('mobile')}
+                                    value={values.mobile} onChangeText={handleChange('mobile')} onBlur={handleBlur('mobile')}
                                 />
+
+                                <Label>Endereço</Label>
                                 <FloatInput
-                                    label="Endereço" value={values.address} onChangeText={handleChange('address')} onBlur={handleBlur('address')}
+                                    value={values.address} onChangeText={handleChange('address')} onBlur={handleBlur('address')}
                                 />
+
+                                <Label>Bairro</Label>
                                 <FloatInput
-                                    label="Bairro" value={values.district} onChangeText={handleChange('district')} onBlur={handleBlur('district')}
+                                    value={values.district} onChangeText={handleChange('district')} onBlur={handleBlur('district')}
                                 />
+
+                                <Label>Cidade</Label>
                                 <FloatInput
-                                    label="Cidade" value={values.city} onChangeText={handleChange('city')} onBlur={handleBlur('city')}
+                                    value={values.city} onChangeText={handleChange('city')} onBlur={handleBlur('city')}
                                 />
+
+                                <Label>Estado</Label>
                                 <FloatInput
-                                    label="Estado" value={values.state} onChangeText={handleChange('state')} onBlur={handleBlur('state')}
+                                    value={values.state} onChangeText={handleChange('state')} onBlur={handleBlur('state')}
                                 />
                             </Form>
                         )}

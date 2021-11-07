@@ -18,6 +18,14 @@ export const Container = styled.ScrollView`
 
 export const Text = styled.Text``;
 
+export const Label = styled.Text`
+    font-family: ${({ theme }) => theme.fonts.roboto_medium};
+    font-size: ${RFValue(12)}px;
+    line-height: 16px;
+    color: ${({ theme }) => theme.colors.mine_shaft_800};
+    margin-left: 16px;
+`;
+
 export const TextError = styled.Text`
     font-family: ${({ theme }) => theme.fonts.roboto_medium};
     font-size: ${RFValue(12)}px;
@@ -26,7 +34,9 @@ export const TextError = styled.Text`
     margin-left: 16px;
 `;
 
-export const Form = styled.View``;
+export const Form = styled.View`
+    margin-top: 16px;
+`;
 
 export const FloatInput = styled(FloatingLabelInput).attrs<FloatLabelProps>(props => ({
     containerStyles: {
@@ -35,7 +45,7 @@ export const FloatInput = styled(FloatingLabelInput).attrs<FloatLabelProps>(prop
         backgroundColor: theme.colors.mine_shaft_10,
         borderColor: props.hasError ? theme.colors.alizarin_crimson_500 : theme.colors.mine_shaft_40,
         borderRadius: 12,
-        marginTop: 16
+        marginBottom: 16,
     },
     customLabelStyles: {
         fontSizeBlurred: 16,
@@ -44,9 +54,9 @@ export const FloatInput = styled(FloatingLabelInput).attrs<FloatLabelProps>(prop
         colorFocused: props.hasError ? theme.colors.alizarin_crimson_500 : theme.colors.mine_shaft_800,
         leftBlurred: 0,
         leftFocused: -4,
-        topFocused: -12
+        topFocused: -12,
     },
     inputStyles: {
-        fontSize: 16
+        fontSize: 16,
     }
 }))``;
